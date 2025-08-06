@@ -4,58 +4,341 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Delicious Bites Menu</title>
+  
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Custom CSS -->
+  <style>
+    body {
+      background-image: url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      min-height: 100vh;
+      position: relative;
+    }
+    
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: -1;
+    }
+    
+    .menu-container {
+      background-color: rgba(255, 255, 255, 0.95);
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      margin: 20px auto;
+      padding: 30px;
+      max-width: 800px;
+    }
+    
+    h1 {
+      color: #8B4513;
+      text-align: center;
+      margin-bottom: 30px;
+      font-weight: bold;
+    }
+    
+    h2 {
+      color: #D2691E;
+      border-bottom: 2px solid #D2691E;
+      padding-bottom: 10px;
+      margin-top: 30px;
+    }
+    
+    .menu-card {
+      background-color: rgba(255, 255, 255, 0.95);
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: none;
+      overflow: hidden;
+    }
+    
+    .menu-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    }
+    
+    .card-header {
+      background: linear-gradient(135deg, #D2691E, #FF8C42);
+      color: white;
+      font-weight: bold;
+      font-size: 1.2em;
+      border-bottom: none;
+      padding: 15px 20px;
+    }
+    
+    .price-tag {
+      background-color: #8B4513;
+      color: white;
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-weight: bold;
+      font-size: 1.1em;
+      float: right;
+      margin-top: -3px;
+    }
+    
+    .card-body {
+      padding: 20px;
+    }
+    
+    .menu-description {
+      color: #555;
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+    
+    .card-img-top {
+      height: 200px;
+      object-fit: cover;
+      border-bottom: 3px solid #D2691E;
+    }
+    
+    .card-img-container {
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .card-img-container::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(45deg, rgba(210, 105, 30, 0.1), rgba(255, 140, 66, 0.1));
+      pointer-events: none;
+    }
+    
+    .contact-link {
+      text-align: center;
+      margin-top: 30px;
+      padding: 20px;
+    }
+    
+    .contact-link a {
+      background-color: #D2691E;
+      color: white;
+      padding: 12px 30px;
+      text-decoration: none;
+      border-radius: 25px;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+    
+    .contact-link a:hover {
+      background-color: #8B4513;
+    }
+    
+    .contact-section {
+      background-color: rgba(255, 255, 255, 0.95);
+      border-radius: 15px;
+      padding: 30px;
+      margin-top: 40px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      text-align: center;
+    }
+    
+    .contact-info {
+      margin: 20px 0;
+    }
+    
+    .contact-info h3 {
+      color: #8B4513;
+      margin-bottom: 15px;
+    }
+    
+    .contact-item {
+      margin: 10px 0;
+      color: #555;
+      font-size: 1.1em;
+    }
+    
+    .contact-item i {
+      color: #D2691E;
+      margin-right: 10px;
+      width: 20px;
+    }
+  </style>
 </head>
 <body>
-  <h1>Delicious Bites Menu</h1>
+  <div class="container">
+    <div class="menu-container">
+      <h1>Delicious Bites Menu</h1>
 
-  <h2>Appetizers</h2>
-  <ul>
-    <li>
-      <strong>Caprese Salad</strong>
-      <p>Fresh tomatoes, mozzarella, and basil drizzled with balsamic glaze.</p>
-    </li>
-    <li>
-      <strong>Spiced Chickpea Fritters</strong>
-      <p>Crispy fried chickpea patties served with a tangy yogurt-mint dipping sauce.</p>
-    </li>
-    <li>
-      <strong>Roasted Beet & Goat Cheese Tartine</strong>
-      <p>Toasted baguette topped with whipped goat cheese, roasted beets, arugula, and a honey drizzle.</p>
-    </li>
-  </ul>
+      <h2>Appetizers</h2>
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <div class="card menu-card">
+            <div class="card-img-container">
+              <img src="https://images.unsplash.com/photo-1592417817098-8fd3d9eb14a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="card-img-top" alt="Caprese Salad">
+            </div>
+            <div class="card-header">
+              Caprese Salad
+              <span class="price-tag">$12</span>
+            </div>
+            <div class="card-body">
+              <p class="menu-description">Fresh tomatoes, mozzarella, and basil drizzled with balsamic glaze.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card menu-card">
+            <div class="card-img-container">
+              <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="card-img-top" alt="Spiced Chickpea Fritters">
+            </div>
+            <div class="card-header">
+              Spiced Chickpea Fritters
+              <span class="price-tag">$10</span>
+            </div>
+            <div class="card-body">
+              <p class="menu-description">Crispy fried chickpea patties served with a tangy yogurt-mint dipping sauce.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card menu-card">
+            <div class="card-img-container">
+              <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="card-img-top" alt="Roasted Beet & Goat Cheese Tartine">
+            </div>
+            <div class="card-header">
+              Roasted Beet & Goat Cheese Tartine
+              <span class="price-tag">$14</span>
+            </div>
+            <div class="card-body">
+              <p class="menu-description">Toasted baguette topped with whipped goat cheese, roasted beets, arugula, and a honey drizzle.</p>
+            </div>
+          </div>
+        </div>
+      </div>
 
-  <h2>Main Courses</h2>
-  <ul>
-    <li>
-      <strong>Grilled Salmon</strong>
-      <p>Salmon fillet seasoned and grilled to perfection, served with lemon butter sauce.</p>
-    </li>
-    <li>
-      <strong>Lamb Tagine with Apricots</strong>
-      <p>Slow-braised lamb in aromatic spices with sweet apricots, served over fluffy couscous.</p>
-    </li>
-    <li>
-      <strong>Mushroom & Spinach Risotto</strong>
-      <p>Creamy arborio rice simmered with wild mushrooms, baby spinach, and Parmesan cheese.</p>
-    </li>
-  </ul>
+      <h2>Main Courses</h2>
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <div class="card menu-card">
+            <div class="card-img-container">
+              <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="card-img-top" alt="Grilled Salmon">
+            </div>
+            <div class="card-header">
+              Grilled Salmon
+              <span class="price-tag">$28</span>
+            </div>
+            <div class="card-body">
+              <p class="menu-description">Salmon fillet seasoned and grilled to perfection, served with lemon butter sauce.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card menu-card">
+            <div class="card-img-container">
+              <img src="https://images.unsplash.com/photo-1574484284002-952d92456975?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="card-img-top" alt="Lamb Tagine with Apricots">
+            </div>
+            <div class="card-header">
+              Lamb Tagine with Apricots
+              <span class="price-tag">$32</span>
+            </div>
+            <div class="card-body">
+              <p class="menu-description">Slow-braised lamb in aromatic spices with sweet apricots, served over fluffy couscous.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card menu-card">
+            <div class="card-img-container">
+              <img src="https://images.unsplash.com/photo-1476124369491-e7addf5db371?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="card-img-top" alt="Mushroom & Spinach Risotto">
+            </div>
+            <div class="card-header">
+              Mushroom & Spinach Risotto
+              <span class="price-tag">$24</span>
+            </div>
+            <div class="card-body">
+              <p class="menu-description">Creamy arborio rice simmered with wild mushrooms, baby spinach, and Parmesan cheese.</p>
+            </div>
+          </div>
+        </div>
+      </div>
 
-  <h2>Desserts</h2>
-  <ul>
-    <li>
-      <strong>Chocolate Fondue</strong>
-      <p>Assorted fruits and marshmallows served with rich chocolate fondue.</p>
-    </li>
-    <li>
-      <strong>Orange Blossom Panna Cotta</strong>
-      <p>Silky vanilla panna cotta infused with orange blossom, topped with candied citrus peel.</p>
-    </li>
-    <li>
-      <strong>Cardamom Pear Tart</strong>
-      <p>Buttery pastry filled with spiced pear compote and a hint of cardamom, finished with a dusting of powdered sugar.</p>
-    </li>
-  </ul>
+      <h2>Desserts</h2>
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <div class="card menu-card">
+            <div class="card-img-container">
+              <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="card-img-top" alt="Chocolate Fondue">
+            </div>
+            <div class="card-header">
+              Chocolate Fondue
+              <span class="price-tag">$16</span>
+            </div>
+            <div class="card-body">
+              <p class="menu-description">Assorted fruits and marshmallows served with rich chocolate fondue.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card menu-card">
+            <div class="card-img-container">
+              <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="card-img-top" alt="Orange Blossom Panna Cotta">
+            </div>
+            <div class="card-header">
+              Orange Blossom Panna Cotta
+              <span class="price-tag">$14</span>
+            </div>
+            <div class="card-body">
+              <p class="menu-description">Silky vanilla panna cotta infused with orange blossom, topped with candied citrus peel.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card menu-card">
+            <div class="card-img-container">
+              <img src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="card-img-top" alt="Cardamom Pear Tart">
+            </div>
+            <div class="card-header">
+              Cardamom Pear Tart
+              <span class="price-tag">$18</span>
+            </div>
+            <div class="card-body">
+              <p class="menu-description">Buttery pastry filled with spiced pear compote and a hint of cardamom, finished with a dusting of powdered sugar.</p>
+            </div>
+          </div>
+        </div>
+      </div>
 
-  <p><a href="contact.html">Contact us for reservations</a></p>
+      <div class="contact-section">
+        <h3>📞 Contact & Reservations</h3>
+        <div class="contact-info">
+          <div class="contact-item">
+            <i>📍</i> 123 Gourmet Street, Food District, Casablanca 20000
+          </div>
+          <div class="contact-item">
+            <i>📞</i> +212 5 22 45 67 89
+          </div>
+          <div class="contact-item">
+            <i>📧</i> reservations@deliciousbites.ma
+          </div>
+          <div class="contact-item">
+            <i>🕐</i> Open: 12:00 PM - 11:00 PM (Daily)
+          </div>
+        </div>
+        <div class="contact-link">
+          <a href="contact.html" class="btn">Make a Reservation</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
